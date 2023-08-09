@@ -4,9 +4,9 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: sans-serif;
   font-size: 1rem;
   line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
 }
 
 *,
@@ -29,6 +29,8 @@ div {
 
 h2,
 h1,
+h3,
+h4,
 strong,
 .bold {
   font-weight: 900;
@@ -36,4 +38,21 @@ strong,
 
 h2[class='blue'] {
   color: blue;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-list {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+.nav-list li {
+  margin-right: 1em;
 }
