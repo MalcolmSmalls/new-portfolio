@@ -33,3 +33,7 @@ strong,
 .bold {
   font-weight: 900;
 }
+
+h2[class='blue'] {
+  color: blue;
+}
