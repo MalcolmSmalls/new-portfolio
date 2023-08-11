@@ -57,9 +57,10 @@ h2[class='blue'] {
 }
 
 header {
-  z-index: 999;
+  z-index: 1;
   color: white;
   min-height: 100vh;
+  position: relative;
 }
 .nav-list {
   display: none;
@@ -88,9 +89,14 @@ header {
 }
 
 .hero {
+  overflow: hidden;
+  position: relative;
+}
+
+.hero {
   position: absolute;
   top: 0;
-  z-index: -1;
+  left: 0;
   background: url('/assets/mountain.jpg');
   background-size: cover;
   background-position: center;
@@ -106,6 +112,18 @@ header {
   padding: 20em 2em;
 }
 
+.hero-content {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 3;
+  padding: 1em;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .hero-tagline {
   margin-bottom: 1em;
 }
@@ -113,7 +131,7 @@ header {
 .hero-tagline,
 .hero-subtitle,
 .hero-p {
-  text-shadow: 4px 2px 10px rgba(0, 0, 0, 0.4);
+  text-shadow: 4px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .title,
@@ -147,4 +165,46 @@ header {
 
 .about-me-image {
   border: 15px solid white;
+}
+
+.hero-tagline {
+  background: #ff2511;
+  padding: 0.5em 2em;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-top: 2em;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  z-index: 999;
+  position: relative;
+  /* text-transform: uppercase;
+  letter-spacing: 2px; */
+}
+
+.hero-tagline:hover,
+.hero-tagline:focus {
+  background: #dd1300;
+  pointer: cursor;
+  color: white;
+  z-index: 2;
+  position: relative;
+}
+
+a:hover {
+  color: pink;
+}
+
+header {
+  color: #c6b79b;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+.about-me {
+  padding-top: 15em;
 }
