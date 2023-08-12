@@ -102,6 +102,7 @@ header {
   background-position: center;
   background-color: gray;
   background-blend-mode: multiply;
+  background-attachment: fixed;
   margin: 0;
   color: white;
   min-height: 100vh;
@@ -168,9 +169,10 @@ header {
 }
 
 .hero-tagline {
-  background: #ff2511;
+  background: #ba0f30;
   padding: 0.5em 2em;
-  border-radius: 10px;
+  /* border: 2px solid white; */
+  border-radius: 50rem;
   font-size: 1rem;
   margin-top: 2em;
   color: white;
@@ -178,13 +180,14 @@ header {
   font-weight: 700;
   z-index: 999;
   position: relative;
+  transition: background-color 500ms;
   /* text-transform: uppercase;
   letter-spacing: 2px; */
 }
 
 .hero-tagline:hover,
 .hero-tagline:focus {
-  background: #dd1300;
+  background: #940c26;
   pointer: cursor;
   color: white;
   z-index: 2;
@@ -207,4 +210,8 @@ header {
 
 .about-me {
   padding-top: 15em;
+}
+
+.about-me-content {
+  display: grid;
 }
