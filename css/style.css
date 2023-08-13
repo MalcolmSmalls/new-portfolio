@@ -16,6 +16,7 @@ body {
   line-height: 1.7;
   font-family: 'Poppins', sans-serif;
   color: #2f2440;
+  background: white;
 }
 
 i {
@@ -91,11 +92,15 @@ header {
   padding: 2em 2em;
 }
 
+.resume-list {
+  list-style: none;
+  padding: 0;
+}
+
 /* Header */
 
 header {
   z-index: 1;
-  color: white;
   min-height: 100vh;
   position: relative;
 }
@@ -169,6 +174,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 .hero-tagline {
   margin-bottom: 1em;
@@ -224,6 +230,41 @@ th {
 
 td {
   grid-column: 2 / 3;
+}
+
+/* Resume */
+
+.resume-list li {
+  display: grid;
+  grid-template-columns: 1fr 1em 1fr;
+  grid-template-rows: 20px 70px 1em 1fr;
+  margin-bottom: 2em;
+}
+
+.years {
+  border: 2px solid #ba0f30;
+  align-self: center;
+  text-align: center;
+  font-weight: bold;
+  color: #ba0f30;
+  padding: 1em;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.resume-title {
+  grid-column: 3;
+}
+
+.resume-subtitle {
+  grid-column: 3;
+  grid-row: 2;
+  font-weight: 400;
+}
+
+.resume-content {
+  grid-column: 1 / -1;
+  grid-row: 4;
 }
 
 /* ======================================================> Buttons */
