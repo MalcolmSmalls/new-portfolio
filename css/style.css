@@ -352,8 +352,34 @@ td {
   font-size: 2rem;
 }
 
-.contact ul {
-  text-align: center;
+.contact-item {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  margin-bottom: 2em;
+}
+
+.contact-icon {
+  grid-row: span 2;
+  align-self: center;
+  justify-self: center;
+  border-right: 2px solid rgba(96, 94, 91, 0.3);
+  width: 50px;
+  vertical-align: center;
+}
+
+.contact-icon-header {
+  grid-column: 2;
+  align-self: end;
+  line-height: 1;
+}
+
+.contact-icon-p {
+  align-self: start;
+}
+
+.contact-icon-p,
+.contact-icon-header {
+  padding-left: 1em;
 }
 
 .contact-input {
@@ -396,11 +422,16 @@ footer {
   border-radius: 2px;
   font-size: 1rem;
   padding: 0.5em 1.5em;
+  border: none;
 }
 
 .primary-btn {
   background: #ba0f30;
   transition: background-color 500ms;
+}
+
+button {
+  cursor: pointer;
 }
 
 .primary-btn:hover,
@@ -409,6 +440,9 @@ footer {
   pointer: cursor;
 }
 
+.contact-btn {
+  width: 20%;
+}
 /* Hero CTA */
 
 .hero-tagline {
