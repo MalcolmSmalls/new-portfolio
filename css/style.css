@@ -1,5 +1,9 @@
 /* ======================================================> General Defaults */
 
+.mgb-xs {
+  margin-bottom: 0.5em;
+}
+
 .mgb-s {
   margin-bottom: 1em;
 }
@@ -22,7 +26,7 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   font-family: 'Poppins', sans-serif;
-  color: #2f2440;
+  color: rgb(96, 94, 91);
   background: white;
 }
 
@@ -44,6 +48,8 @@ img {
 h2,
 h3,
 h1,
+h4,
+h5,
 p,
 div,
 ul,
@@ -60,9 +66,21 @@ strong,
   font-weight: 700;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  color: #2f2440;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
 /* ======================================================> Typography */
 
-header {
+header,
+.logo {
   color: #c6b79b;
 }
 
@@ -91,6 +109,21 @@ header {
 .subtitle {
   font-size: 0.8rem;
   letter-spacing: 4px;
+  color: rgb(96, 94, 91);
+}
+
+.active {
+  color: #ba0f30;
+  display: block;
+}
+
+.contact p {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-title,
+.hero-content {
+  color: #f9f7f5;
 }
 
 /* ======================================================> Layout */
@@ -178,7 +211,6 @@ header {
   position: absolute;
   z-index: 3;
   padding: 1em;
-  color: #f9f7f5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -197,7 +229,8 @@ header {
   margin-bottom: 2em;
 }
 .about-me,
-.skills {
+.skills,
+.contact {
   background-color: #ede9e1;
 }
 
@@ -247,7 +280,7 @@ td {
 .resume-list li {
   display: grid;
   grid-template-columns: 1fr 1em 1fr;
-  grid-template-rows: 20px 70px 1em 1fr;
+  grid-template-rows: max-content max-content 1em 1fr;
   margin-bottom: 2em;
 }
 
@@ -265,10 +298,12 @@ td {
 .resume-title {
   grid-column: 3;
   justify-self: center;
+  align-self: end;
 }
 
 .resume-subtitle {
   justify-self: center;
+  align-self: start;
   grid-column: 3;
   grid-row: 2;
   font-weight: 400;
@@ -310,6 +345,45 @@ td {
 .skills-list-paragraph {
   grid-column: 3;
   grid-row: 2;
+}
+
+/* Contact Form */
+.contact i {
+  font-size: 2rem;
+}
+
+.contact ul {
+  text-align: center;
+}
+
+.contact-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.8em;
+  border-radius: 5px;
+  border: 2px solid rgba(96, 94, 91, 0.3);
+  outline: 0;
+}
+
+.contact-input:focus {
+  border: 2px solid #ba0f30;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5em;
+}
+
+.contact-textarea {
+  height: 150px;
+  resize: vertical;
+}
+/* Footer */
+
+footer {
+  background-color: #2f2440;
 }
 
 /* ======================================================> Buttons */
