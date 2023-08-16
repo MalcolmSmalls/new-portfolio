@@ -143,15 +143,18 @@ header,
 
 header {
   z-index: 1;
-  min-height: 10vh;
-  position: relative;
+  min-height: 8vh;
+  position: fixed;
 }
-
+.nav-white-bg {
+  background-color: white;
+}
 .nav {
   display: flex;
   /* align-items: center; */
   gap: 2em;
   justify-content: space-between;
+  align-items: center;
   padding: 1em 2em;
   /* z-index: 9999; */
   top: 0;
@@ -160,6 +163,8 @@ header {
   right: 0;
   position: absolute;
   z-index: 9999;
+  min-width: 100vw;
+  transition: background-color 200ms;
 }
 
 .nav-list {
@@ -183,11 +188,11 @@ header {
 
 .nav-hamburger {
   font-size: 2rem;
-  position: relative;
+  /* position: relative;
   top: 0;
   bottom: 0;
   right: 0;
-  left: 0;
+  left: 0; */
   z-index: 2;
   height: max-content;
 }
@@ -206,12 +211,11 @@ header {
 }
 
 .hero {
-  position: absolute;
   top: 0;
   left: 0;
   background: url('/assets/mountain.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: 40%;
   background-color: gray;
   background-blend-mode: multiply;
   background-attachment: fixed;
@@ -223,6 +227,7 @@ header {
   align-items: center;
   padding: 20em 2em;
   z-index: 0;
+  max-width: 100%;
 }
 
 .hero-content {
