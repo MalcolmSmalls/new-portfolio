@@ -143,23 +143,22 @@ header,
   padding: 0;
 }
 
+@media (min-width: 750px) {
+  .section {
+    padding: 2em 3em;
+  }
+}
+
 /* Header */
 
 header {
   min-height: 80px;
   position: fixed;
   display: flex;
-  /* align-items: center; */
   gap: 2em;
   justify-content: space-between;
   align-items: center;
   padding: 1em 2em;
-  /* z-index: 9999; */
-  /* top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  position: absolute; */
   z-index: 9999;
   width: 100%;
   transition: background-color 300ms;
@@ -169,20 +168,20 @@ header {
   box-shadow: 10px 2px 10px rgba(0, 0, 0, 0.1);
 }
 .nav {
-  /* display: none; */
   position: fixed;
-  top: -70%;
+  top: -40%;
   right: 0;
   left: 0;
   bottom: 0;
   z-index: -1;
   transform: translateY(0);
   transition: transform 250ms;
+  height: 30vh;
 }
 
 .nav-list {
   display: flex;
-  height: 45vh;
+  height: 30vh;
   background-color: white;
   flex-direction: column;
   align-items: flex-start;
@@ -198,12 +197,8 @@ header {
   transition: color 250ms;
 }
 .open-nav {
-  transform: translateY(48%);
+  transform: translateY(160%);
 }
-
-/* .nav-list li:not(:last-child) {
-  margin-right: 3em;
-} */
 
 .nav-link:hover,
 .nav-link:focus {
@@ -218,12 +213,6 @@ header {
 
 .nav-hamburger {
   font-size: 2rem;
-  /* position: relative;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0; */
-  /* z-index: 2; */
   height: max-content;
 }
 
@@ -328,6 +317,45 @@ th {
 
 td {
   grid-column: 2 / 3;
+}
+
+@media (min-width: 750px) {
+  tr {
+    display: grid;
+  }
+  tr {
+    grid-template-columns: 100px 1fr minmax(1em, 1fr) 100px 1fr;
+  }
+  .name-header,
+  .email-header {
+    grid-column: 1 / 2;
+    grid-row: span 1;
+  }
+
+  .email-data,
+  .name-data {
+    grid-column: 2 / 3;
+  }
+
+  .age-header,
+  .location-header {
+    grid-column: 4 / 5;
+    grid-row: 1;
+  }
+
+  .location-header {
+    grid-row: 2;
+  }
+
+  .age-data,
+  .location-data {
+    grid-column: 5 / 6;
+    grid-row: 1;
+  }
+
+  .location-data {
+    grid-row: 2;
+  }
 }
 
 /* Resume */
@@ -546,14 +574,9 @@ button {
 /* Hero CTA */
 
 .hero-tagline {
-  /* border: 2px solid white; */
-  /* border-radius: 50rem; */
   margin-top: 2em;
   z-index: 999;
   position: relative;
-
-  /* text-transform: uppercase;
-    letter-spacing: 2px; */
 }
 
 .hero-tagline:hover,
