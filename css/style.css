@@ -1,5 +1,12 @@
 /* ======================================================> General Defaults */
 
+#about,
+#resume,
+#skills,
+#portfolio,
+#contact {
+  scroll-margin-top: 80px;
+}
 .mgb-xs {
   margin-bottom: 0.5em;
 }
@@ -287,16 +294,25 @@ header {
   margin-left: auto;
   margin-right: auto;
   border: 15px solid white;
-  overflow: hidden;
+  /* overflow: hidden;
   width: 400px;
-  height: 400px;
+  height: 400px; */
+  position: relative;
   border-radius: 10px;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
 }
+
+.about-me-image-container::after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
 .about-me-image {
-  min-width: 400px;
-  min-height: 400px;
+  /* min-width: 400px;
+  min-height: 400px; */
+  position: absolute;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: 50%;
 }
