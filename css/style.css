@@ -523,6 +523,40 @@ td {
     margin-bottom: 2em;
   }
 }
+
+@media (min-width: 900px) {
+  .skills-list li {
+    display: grid;
+    grid-template-columns: max-content 1em 1fr;
+  }
+
+  .col-2 {
+    grid-column: 7/8;
+  }
+  .skills-list {
+    display: grid;
+    grid-template-columns: 1fr 1em 1fr;
+  }
+  .html5-item,
+  .js-item,
+  .react-item {
+    grid-column: 1 / 2;
+  }
+
+  .tailwind-item {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+
+  .skills-item {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+  .mongoose-item {
+    grid-column: 3/4;
+    grid-row: 3/4;
+  }
+}
 /* Contact Form */
 .contact i {
   font-size: 2rem;
