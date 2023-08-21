@@ -162,7 +162,7 @@ tr {
 
 @media (min-width: 900px) {
   .section {
-    padding: 2em 2em;
+    padding: 3em 2em;
   }
 }
 
@@ -482,6 +482,20 @@ td {
   grid-row: 4;
 }
 
+@media (min-width: 900px) {
+  .resume-list {
+    display: grid;
+    grid-template-columns: 1fr 1em 1fr;
+  }
+  .resume-col-1 {
+    grid-column: 1/2;
+  }
+
+  .resume-col-2 {
+    grid-column: 3/4;
+  }
+}
+
 /* Skillset */
 .skills-list li {
   display: grid;
@@ -535,7 +549,7 @@ td {
   }
   .skills-list {
     display: grid;
-    grid-template-columns: 1fr 1em 1fr;
+    grid-template-columns: 1fr minmax(1em, 5em) 1fr;
   }
   .html5-item,
   .js-item,
@@ -615,6 +629,28 @@ td {
 .contact-textarea {
   height: 150px;
   resize: vertical;
+}
+
+@media (min-width: 900px) {
+  .contact-social-list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2em;
+  }
+  .contact-subject {
+    grid-row: 2 / 3;
+    grid-column: span 2;
+  }
+
+  .contact-textarea {
+    grid-row: 3 / 4;
+    grid-column: span 2;
+  }
 }
 /* Footer */
 
