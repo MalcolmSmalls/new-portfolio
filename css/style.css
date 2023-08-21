@@ -154,6 +154,10 @@ tr {
   padding: 0;
 }
 
+.section-container {
+  background-color: #ede9e1;
+}
+
 @media (min-width: 750px) {
   .section {
     padding: 2em 3em;
@@ -163,6 +167,13 @@ tr {
 @media (min-width: 900px) {
   .section {
     padding: 3em 2em;
+  }
+}
+
+@media (min-width: 1090px) {
+  .section {
+    max-width: 1000px;
+    margin: 0 auto;
   }
 }
 
@@ -387,7 +398,7 @@ td {
   }
   .about-me-content {
     display: grid;
-    grid-template-columns: minmax(400px, 1fr) minmax(2em, 3em) minmax(
+    grid-template-columns: minmax(400px, 400px) minmax(2em, 3em) minmax(
         400px,
         1fr
       );
@@ -651,6 +662,25 @@ td {
     grid-row: 3 / 4;
     grid-column: span 2;
   }
+  /* .contact-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 33%;
+    text-align: center;
+    gap: 0.5em;
+  }
+
+  .contact-item * {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    align-self: center;
+  } */
+
+  /* .contact-icon {
+    border: 0;
+  } */
 }
 /* Footer */
 
