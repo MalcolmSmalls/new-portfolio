@@ -611,6 +611,14 @@ td {
     grid-row: 3/4;
   }
 }
+
+/* Portfolio */
+
+.portfolio-links {
+  display: flex;
+  gap: 1em;
+}
+
 /* Contact Form */
 .contact i {
   font-size: 2rem;
