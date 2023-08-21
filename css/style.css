@@ -255,15 +255,28 @@ header {
   .nav-hamburger {
     display: none;
   }
-  .nav {
+  header {
+    align-items: center;
     display: flex;
+    flex-direction: row;
+    height: 80px;
+    min-height: 80px;
+  }
+  .nav {
     position: initial;
+    height: 0;
+    min-height: 80px;
   }
 
   .nav-list {
+    position: initial;
     display: flex;
     flex-direction: row;
     gap: 1em;
+    background-color: transparent;
+    align-items: center;
+    min-height: 80px;
+    padding: 0;
   }
 }
 
