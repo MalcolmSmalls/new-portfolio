@@ -35,6 +35,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: rgb(96, 94, 91);
   background: white;
+  overflow-x: hidden;
 }
 
 i {
