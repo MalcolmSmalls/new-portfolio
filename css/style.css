@@ -172,7 +172,7 @@ tr {
 
 @media (min-width: 1090px) {
   .section {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 }
@@ -249,6 +249,22 @@ header {
 .nav-hamburger:focus {
   cursor: pointer;
   color: red;
+}
+
+@media (min-width: 750px) {
+  .nav-hamburger {
+    display: none;
+  }
+  .nav {
+    display: flex;
+    position: initial;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
 }
 
 /* Hero */
