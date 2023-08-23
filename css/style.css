@@ -674,7 +674,7 @@ td {
   width: 100%;
   height: 100%;
   padding: 0 2em;
-  z-index: 6;
+  z-index: 690;
 }
 
 .grid-title {
@@ -683,14 +683,13 @@ td {
 }
 
 .grid-item:hover {
-  z-index: 1;
-  opacity: 0.5;
-  filter: blur(2px);
+  z-index: 0;
+  opacity: 1;
   overflow: hidden;
+  cursor: pointer;
 }
-
-.grid-item::before:hover {
-  opacity: 0.3;
+.grid-item:hover::before {
+  opacity: 0.7;
 }
 
 .grid-item::before {
@@ -700,12 +699,12 @@ td {
   width: 100%;
   position: absolute;
   z-index: 5;
-  opacity: 1;
+  opacity: 0;
 }
 
 .shuffle-grid-content {
-  visibility: visible;
-  opacity: 1;
+  visibility: hidden;
+  opacity: 0;
   transition: visibility 0s, opacity 500ms;
 }
 

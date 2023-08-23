@@ -34,14 +34,31 @@ navLink.forEach((element) => {
 
 gridItem.forEach((element) => {
   element.addEventListener('mouseover', () => {
-    console.log(element.classList)
-    // shuffleImg.classList.add('scale')
-    // shuffleContent.classList.add('reveal')
+    shuffleImg.forEach((item) => {
+      if (item.classList.contains(`${element.classList[1]}`)) {
+        item.classList.add('scale')
+      }
+    })
+    shuffleContent.forEach((item) => {
+      if (item.classList.contains(`${element.classList[1]}`)) {
+        item.classList.add('reveal')
+      }
+    })
   })
+})
 
+gridItem.forEach((element) => {
   element.addEventListener('mouseleave', () => {
-    // shuffleImg.classList.remove('scale')
-    // shuffleContent.classList.remove('reveal')
+    shuffleImg.forEach((item) => {
+      if (item.classList.contains(`${element.classList[1]}`)) {
+        item.classList.remove('scale')
+      }
+    })
+    shuffleContent.forEach((item) => {
+      if (item.classList.contains(`${element.classList[1]}`)) {
+        item.classList.remove('reveal')
+      }
+    })
   })
 })
 
