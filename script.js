@@ -71,15 +71,30 @@ portfolioLink.forEach((item) => {
   item.addEventListener('click', () => {
     let count = 0
     gridItem.forEach((element) => {
-      if (element.classList.contains(item.attributes['data-filter'].value)) {
-        element.style.visibility = 'visible'
+      if (item.attributes['data-filter'].value === 'all') {
+        console.log('yup')
         element.style.display = 'initial'
+        element.style.width = '100%'
         count++
+        portfolioGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(400px, 1fr))`
       } else {
-        element.style.visibility = 'hidden'
-        element.style.display = 'none'
+        if (element.classList.contains(item.attributes['data-filter'].value)) {
+          element.style.width = '100%'
+          element.style.display = 'initial'
+          count++
+        } else {
+          element.style.width = '0%'
+          element.style.display = 'none'
+        }
+        portfolioGrid.style.gridTemplateColumns = `repeat(${count}, 1fr)`
       }
     })
-    portfolioGrid.style.gridTemplateColumns = `repeat(${count}, 1fr)`
+    portfolioLink.forEach((element) => {
+      if (element === item) {
+        element.classList.add('active-portfolio')
+      } else {
+        element.classList.remove('active-portfolio')
+      }
+    })
   })
 })

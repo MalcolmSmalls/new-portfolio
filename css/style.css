@@ -660,6 +660,7 @@ td {
   font-size: 0.8rem;
   letter-spacing: 1px;
   text-transform: uppercase;
+  transition: color 250ms;
 }
 
 .portfolio-link:hover,
@@ -738,6 +739,7 @@ td {
   overflow: hidden;
   position: relative;
   z-index: 0;
+  transition: 250ms;
 }
 
 .scale {
