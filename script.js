@@ -5,6 +5,10 @@ const navLink = document.querySelectorAll('.nav-link')
 const gridItem = document.querySelectorAll('.grid-item')
 const shuffleImg = document.querySelectorAll('.shuffle-grid-img')
 const shuffleContent = document.querySelectorAll('.shuffle-grid-content')
+const portfolioLink = document.querySelectorAll('.portfolio-link')
+const node = document.querySelectorAll('.node')
+const react = document.querySelectorAll('.react')
+const portfolioGrid = document.querySelector('.shuffle-grid')
 
 window.addEventListener('scroll', () => {
   if (window.scrollY !== 0) {
@@ -62,11 +66,20 @@ gridItem.forEach((element) => {
   })
 })
 
-const Shuffle = window.Shuffle // Assumes you're using the UMD version of Shuffle (for example, from unpkg.com).
-const element = document.getElementById('portfolio-list')
-const sizer = element.querySelector('.js-shuffle-sizer')
-
-const shuffleInstance = new Shuffle(element, {
-  itemSelector: '.picture-item',
-  sizer: sizer, // could also be a selector: '.js-shuffle-sizer'
+portfolioLink.forEach((item) => {
+  //   console.log(item.attributes['data-filter'].value)
+  item.addEventListener('click', () => {
+    let count = 0
+    gridItem.forEach((element) => {
+      if (element.classList.contains(item.attributes['data-filter'].value)) {
+        element.style.visibility = 'visible'
+        element.style.display = 'initial'
+        count++
+      } else {
+        element.style.visibility = 'hidden'
+        element.style.display = 'none'
+      }
+    })
+    portfolioGrid.style.gridTemplateColumns = `repeat(${count}, 1fr)`
+  })
 })

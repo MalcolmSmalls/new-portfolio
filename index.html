@@ -249,13 +249,13 @@
            <section class="portfolio section" id="portfolio">
             <h2 class="portfolio-title title">My Portfolio</h2>
             <p class="portfolio-subtitle subtitle mgb-m">What I've Built</p>
-            <ul class="portfolio-links">
-                <li data-group="all">All</li>
-                <li data-group="html-css">HTML / CSS</li>
-                <li data-group="javascript">Javscript</li>
-                <li data-group="react">React</li>
-                <li data-group="tailwind">Tailwind</li>
-                <li data-group="node">Node.JS</li>
+            <ul class="portfolio-links mgb-m">
+                <li><a class="portfolio-link active-portfolio" href data-filter="*"  onclick="event.preventDefault()">All</a></li>
+                <li><a class="portfolio-link" href data-filter="html-css"  onclick="event.preventDefault()">HTML / CSS</a></li>
+                <li><a class="portfolio-link" href data-filter="javascript" onclick="event.preventDefault()">Javascript</a></li>
+                <li><a class="portfolio-link" href data-filter="react" onclick="event.preventDefault()">React</a></li>
+                <li><a class="portfolio-link" href data-filter="tailwind" onclick="event.preventDefault()">Tailwind</a></li>
+                <li><a class="portfolio-link" href data-filter="node" onclick="event.preventDefault()">Node.JS</a></li>
             </ul>
             <ul class="shuffle-grid" id="shuffle-grid">
                 <li class="grid-item grid-item-1 beatsByMalcolm" data-groups='["tailwind","node", "react"]' id="grid-item-1">
@@ -270,7 +270,7 @@
 
                 </li>
 
-                <li class="grid-item grid-item-2 gymSite" data-groups='["tailwind","node", "react"]' id="grid-item-2">
+                <li class="grid-item grid-item-2 gymSite node react" data-groups='["tailwind","node", "react"]' id="grid-item-2">
                     <img class="shuffle-grid-img grid-item-2" src="/assets/screen.png" alt="Layout of Beats By Malcolm" />
                     <div class="shuffle-grid-content grid-item-2">
                         <h6 class="grid-title">GymSite</h6>
@@ -282,7 +282,7 @@
 
                 </li>
 
-                <li class="grid-item grid-item-3 foodSite" data-groups='["tailwind","node", "react"]' id="grid-item-3">
+                <li class="grid-item grid-item-3 foodSite tailwind" data-groups='["tailwind","node", "react"]' id="grid-item-3">
                     <img class="shuffle-grid-img grid-item-3" src="/assets/screen.png" alt="Layout of Beats By Malcolm" />
                     <div class="shuffle-grid-content grid-item-3">
                         <h6 class="grid-title">Food Site</h6>
@@ -294,7 +294,7 @@
 
                 </li>
 
-                <li class="grid-item grid-item-4 whoRapped" data-groups='["tailwind","node", "react"]'>
+                <li class="grid-item grid-item-4 whoRapped tailwind react" data-groups='["tailwind","node", "react"]'>
                     <img class="shuffle-grid-img grid-item-4" src="/assets/screen.png" alt="Layout of Beats By Malcolm"  id="grid-item-4"/>
                     <div class="shuffle-grid-content grid-item-4">
                         <h6 class="grid-title">Who Rapped</h6>

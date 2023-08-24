@@ -650,8 +650,25 @@ td {
 .portfolio-links {
   display: flex;
   gap: 1em;
+  justify-content: center;
 }
 
+.portfolio-link {
+  text-decoration: none;
+  font-weight: 700;
+  color: black;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus,
+.active-portfolio {
+  color: #ba0f30;
+  border-bottom: 2px solid #ba0f30;
+  padding-bottom: 4px;
+}
 .js-shuffle-sizer {
   width: 50%;
 }
@@ -660,7 +677,7 @@ td {
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  grid-template-rows: 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
   gap: 2em;
 }
 
