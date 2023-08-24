@@ -67,26 +67,30 @@ gridItem.forEach((element) => {
 })
 
 portfolioLink.forEach((item) => {
-  //   console.log(item.attributes['data-filter'].value)
   item.addEventListener('click', () => {
-    let count = 0
     gridItem.forEach((element) => {
       if (item.attributes['data-filter'].value === 'all') {
         console.log('yup')
-        element.style.display = 'initial'
-        element.style.width = '100%'
-        count++
-        portfolioGrid.style.gridTemplateColumns = `repeat(auto-fit, minmax(400px, 1fr))`
+        element.style.width = '550px'
+        element.style.margin = '0em'
+        element.style.height = '100%'
+        element.style.order = '1'
+        element.style.flex = '1 1 auto'
       } else {
         if (element.classList.contains(item.attributes['data-filter'].value)) {
-          element.style.width = '100%'
-          element.style.display = 'initial'
+          element.style.width = '550px'
+          element.style.margin = '0em'
+          element.style.height = '100%'
+          element.style.order = '1'
+          element.style.flex = '1 1 auto'
           count++
         } else {
-          element.style.width = '0%'
-          element.style.display = 'none'
+          element.style.width = '0px'
+          element.style.margin = '-1em'
+          element.style.height = '0px'
+          element.style.order = '100'
+          element.style.flex = '0 0 0px'
         }
-        portfolioGrid.style.gridTemplateColumns = `repeat(${count}, 1fr)`
       }
     })
     portfolioLink.forEach((element) => {
