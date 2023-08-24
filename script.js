@@ -70,7 +70,6 @@ portfolioLink.forEach((item) => {
   item.addEventListener('click', () => {
     gridItem.forEach((element) => {
       if (item.attributes['data-filter'].value === 'all') {
-        console.log('yup')
         element.style.width = '550px'
         element.style.margin = '0em'
         element.style.height = '100%'
@@ -83,7 +82,6 @@ portfolioLink.forEach((item) => {
           element.style.height = '100%'
           element.style.order = '1'
           element.style.flex = '1 1 auto'
-          count++
         } else {
           element.style.width = '0px'
           element.style.margin = '-1em'
