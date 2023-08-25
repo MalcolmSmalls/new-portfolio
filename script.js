@@ -66,28 +66,45 @@ gridItem.forEach((element) => {
   })
 })
 
+let countUp = 1
+
 portfolioLink.forEach((item) => {
   item.addEventListener('click', () => {
     gridItem.forEach((element) => {
       if (item.attributes['data-filter'].value === 'all') {
-        element.style.width = '550px'
-        element.style.margin = '0em'
-        element.style.height = '100%'
+        // element.style.width = '550px'
+        // element.style.margin = '0em'
+        // element.style.height = '100%'
+        // element.style.order = '1'
+        // element.style.flex = '1 1 550px'
+        element.style.opacity = '1'
+        element.style.transitionProperty = 'opacity, transform'
+        element.style.transitionDuration = '0.4s'
+        element.style.transform = 'translate3d(0px, 0px, 0px)'
         element.style.order = '1'
-        element.style.flex = '1 1 auto'
       } else {
         if (element.classList.contains(item.attributes['data-filter'].value)) {
           element.style.width = '550px'
-          element.style.margin = '0em'
-          element.style.height = '100%'
+          // element.style.margin = '0em'
+          // element.style.height = '100%'
+          // element.style.opacity = '1'
+          // element.style.flex = '1 1 550px'
+          element.style.opacity = '1'
+          element.style.transitionProperty = 'opacity, transform'
+          element.style.transitionDuration = '0.4s'
+          element.style.transform = 'translate3d(0px, 0px, 0px)'
           element.style.order = '1'
-          element.style.flex = '1 1 auto'
         } else {
-          element.style.width = '0px'
-          element.style.margin = '-1em'
-          element.style.height = '0px'
+          element.style.opacity = '0'
+          element.style.transitionProperty = 'opacity, transform'
+          element.style.transitionDuration = '0.4s'
+          element.style.transform = 'translate3d(-759px, 0px, 0px)'
+          // element.style.width = '0px'
+          // element.style.margin = '-1em'
+          // element.style.height = '0px'
+          // element.style.opacity = '0'
+          // element.style.flex = '0 0 0px'
           element.style.order = '100'
-          element.style.flex = '0 0 0px'
         }
       }
     })
