@@ -145,6 +145,7 @@ portfolioLink.forEach((item) => {
 const words = ['Javascript', 'React', 'HTML / CSS', 'Express', 'Node-JS']
 let phrase = []
 const typeText = document.querySelector('.type')
+const heroTagline = document.querySelector('.hero-tagline')
 const speed = 1000
 let index = 0
 let jIndex = 0
@@ -154,6 +155,7 @@ let isEnd = false
 function typeWriter() {
   isEnd = false
   typeText.style.setProperty('--animationFX', 'none')
+  heroTagline.style.setProperty('--bounceSFX', 'none')
   typeText.innerHTML = phrase.join('')
   if (index < words.length) {
     if (!isDeleting && jIndex <= words[index].length) {
@@ -171,6 +173,7 @@ function typeWriter() {
     if (isDeleting && jIndex === words[index].length - 1) {
       isEnd = true
       typeText.style.setProperty('--animationFX', 'blink 1s linear infinite')
+      heroTagline.style.setProperty('--bounceSFX', 'bounce 2s')
     }
   } else if (index >= words.length) {
     index = 0
