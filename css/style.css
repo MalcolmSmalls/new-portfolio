@@ -1,3 +1,7 @@
+/* :root {
+  --animationFX: none;
+} */
+
 /* ======================================================> General Defaults */
 
 #about,
@@ -330,9 +334,27 @@ header {
   justify-content: center;
   text-align: center;
 }
+
+.type {
+  --animationFX: none;
+}
+
+.type::after {
+  content: '';
+  padding-left: 2px;
+  border-right: 2px solid white;
+  display: inline;
+  animation: var(--animationFX);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 .hero-tagline {
   margin-bottom: 1em;
-  animation: bounce 2s infinite;
+  /* animation: bounce 3s infinite; */
 }
 
 @keyframes bounce {

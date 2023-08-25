@@ -100,3 +100,92 @@ portfolioLink.forEach((item) => {
     })
   })
 })
+
+// Hero - Type
+
+// function typeWriter() {
+//   while (jIndex < words.length) {
+//     while (index < words[jIndex].length) {
+//       typeText.innerHTML += words[jIndex].charAt(index)
+//       index++
+//     }
+//     setTimeout(typeWriter, speed)
+//     typeText.innerHTML = ''
+//     console.log(jIndex)
+//     jIndex++
+//   }
+// }
+
+// function clearTypeWriter() {
+//   if (index > words[jIndex].length) {
+//     setInterval(function () {
+//       typeText.innerHTML -= words[jIndex].charAt(index)
+//       index--
+//     }, 100)
+//   }
+
+//   jIndex++
+//   typeWriter()
+// }
+
+// function typeWriter() {
+//   if (jIndex < words.length) {
+//     if (index < words[jIndex].length) {
+//       setInterval(function () {
+//         typeText.innerHTML += words[jIndex].charAt(index)
+//         index++
+//       }, 800)
+//     }
+//   } else {
+//     jIndex = 0
+//   }
+//   setTimeout(clearTypeWriter, 2200)
+// }
+
+const words = ['Javascript', 'React', 'HTML / CSS', 'Express', 'Node-JS']
+let phrase = []
+const typeText = document.querySelector('.type')
+const speed = 1000
+let index = 0
+let jIndex = 0
+let isDeleting = false
+let isEnd = false
+
+function typeWriter() {
+  isEnd = false
+  typeText.style.setProperty('--animationFX', 'none')
+  typeText.innerHTML = phrase.join('')
+  if (index < words.length) {
+    if (!isDeleting && jIndex <= words[index].length) {
+      phrase.push(words[index][jIndex])
+      jIndex++
+    }
+
+    if (isDeleting && jIndex <= words[index].length) {
+      phrase.pop()
+      jIndex--
+    }
+    if (jIndex === words[index].length) {
+      isDeleting = true
+    }
+    if (isDeleting && jIndex === words[index].length - 1) {
+      isEnd = true
+      typeText.style.setProperty('--animationFX', 'blink 1s linear infinite')
+    }
+  } else if (index >= words.length) {
+    index = 0
+  }
+  if (isDeleting && phrase.length === 0) {
+    j = 0
+    isDeleting = false
+    phrase = []
+    index++
+  }
+
+  const speedUp = Math.random() * (100 - 50) + 50
+  const normalSpeed = Math.random() * (200 - 100) + 100
+  const time = isEnd ? 2000 : isDeleting ? speedUp : normalSpeed
+  setTimeout(typeWriter, time)
+}
+
+typeWriter()
