@@ -749,7 +749,7 @@ td {
   z-index: 0;
   opacity: 1;
   overflow: hidden;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .grid-item:hover::before {
   opacity: 0.7;
@@ -797,6 +797,14 @@ td {
   width: 100%;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+}
+.portfolio-icon:hover,
+.portfolio-icon:focus {
+  color: white;
+}
+
+.fa-circle-info {
+  margin-right: 0.5em;
 }
 /* Contact Form */
 .contact i {
