@@ -66,32 +66,42 @@ gridItem.forEach((element) => {
   })
 })
 
+let shownArray = []
+let notShownArray = []
+
 portfolioLink.forEach((item) => {
   item.addEventListener('click', () => {
+    shownArray = []
+    notShownArray = []
     gridItem.forEach((element) => {
       if (item.attributes['data-filter'].value === 'all') {
-        element.style.flex = '1 1 auto'
+        // element.style.flex = '1 1 auto'
         element.style.opacity = '1'
         element.style.transitionProperty = 'opacity, transform'
         element.style.transitionDuration = '0.4s'
         element.style.transform = 'translate3d(0px, 0px, 0px)'
         element.style.order = '1'
+        element.style.width = '550px'
+        shownArray.push('true')
       } else {
         if (element.classList.contains(item.attributes['data-filter'].value)) {
-          element.style.width = '550px'
-          element.style.flex = '1 1 auto'
+          // element.style.flex = '1 1 auto'
           element.style.opacity = '1'
           element.style.transitionProperty = 'opacity, transform'
           element.style.transitionDuration = '0.4s'
           element.style.transform = 'translate3d(0px, 0px, 0px)'
           element.style.order = '1'
+          element.style.width = '550px'
+          shownArray.push(element)
         } else {
           element.style.opacity = '0'
           element.style.transitionProperty = 'opacity, transform'
           element.style.transitionDuration = '0.4s'
           element.style.transform = 'translate3d(-759px, 0px, 0px)'
-          element.style.flex = '0 0 0px'
+          element.style.width = '550px'
+          // element.style.flex = '0 0 0'
           element.style.order = '100'
+          notShownArray.push('false')
         }
       }
     })
@@ -102,6 +112,20 @@ portfolioLink.forEach((item) => {
         element.classList.remove('active-portfolio')
       }
     })
+    if (shownArray.length === 0) {
+      portfolioGrid.style.height = `50px`
+    } else if (shownArray.length > 1) {
+      if (shownArray.length < 3) {
+        portfolioGrid.style.height = '220px'
+      } else {
+        portfolioGrid.style.height = `${
+          Math.ceil(shownArray.length / 2) * 240
+        }px`
+      }
+    } else {
+      shownArray[0].style.width = '100%'
+      portfolioGrid.style.height = `470px`
+    }
   })
 })
 

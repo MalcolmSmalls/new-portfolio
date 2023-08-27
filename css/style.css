@@ -776,7 +776,7 @@ td {
   position: relative;
   z-index: 0;
   width: 550px;
-  flex: 1 1 550px;
+  /* flex: 1 1 550px; */
 }
 
 .scale {
