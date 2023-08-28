@@ -441,6 +441,10 @@ td {
   grid-column: 2 / 3;
 }
 
+.about-me {
+  padding-bottom: 5em;
+}
+
 @media (min-width: 750px) {
   tr {
     display: grid;
@@ -534,6 +538,10 @@ td {
   .about-me-btn {
     margin-bottom: 1.5em;
   }
+
+  .about-me {
+    padding-bottom: 3em;
+  }
 }
 
 @media (min-width: 950px) {
@@ -562,10 +570,6 @@ td {
 @media (min-width: 1100px) {
   .email-data span {
     display: inline;
-  }
-
-  .about-me {
-    padding-bottom: 3em;
   }
 }
 /* Resume */
@@ -607,6 +611,10 @@ td {
   grid-row: 4;
 }
 
+.resume {
+  padding-bottom: 1em;
+}
+
 @media (min-width: 900px) {
   .resume-list {
     display: grid;
@@ -618,10 +626,6 @@ td {
 
   .resume-col-2 {
     grid-column: 3/4;
-  }
-
-  .resume {
-    padding-bottom: 1em;
   }
 }
 
@@ -658,16 +662,16 @@ td {
   grid-row: 2;
 }
 
+.skills {
+  padding-bottom: 2em;
+}
+
 @media (min-width: 750px) {
   .skills-list li {
     display: grid;
     grid-template-columns: max-content 3em 2fr;
     grid-template-rows: 40px 1fr;
     margin-bottom: 2em;
-  }
-
-  .skills {
-    padding-bottom: 2em;
   }
 }
 
@@ -883,6 +887,20 @@ td {
   resize: vertical;
 }
 
+.contact-link {
+  color: #2f2440;
+  text-decoration: none;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  color: #ba0f30;
+}
+
+.contact {
+  padding-bottom: 4.5em;
+}
+
 @media (min-width: 900px) {
   .contact-social-list {
     display: flex;
@@ -902,20 +920,6 @@ td {
   .contact-textarea {
     grid-row: 3 / 4;
     grid-column: span 2;
-  }
-
-  .contact-link {
-    color: #2f2440;
-    text-decoration: none;
-  }
-
-  .contact-link:hover,
-  .contact-link:focus {
-    color: #ba0f30;
-  }
-
-  .contact {
-    padding-bottom: 4.5em;
   }
 }
 /* Footer */
