@@ -253,7 +253,7 @@ header {
 .nav-hamburger:hover,
 .nav-hamburger:focus {
   cursor: pointer;
-  color: red;
+  color: #ba0f30;
 }
 
 @media (min-width: 800px) {
@@ -604,11 +604,13 @@ td {
   grid-column: 3;
   justify-self: center;
   align-self: end;
+  text-align: center;
 }
 
 .resume-subtitle {
   justify-self: center;
   align-self: start;
+  text-align: center;
   grid-column: 3;
   grid-row: 2;
   font-weight: 400;
