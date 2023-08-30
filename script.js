@@ -66,9 +66,10 @@ gridItem.forEach((element) => {
   })
 })
 
+let windowSize = 0
 let shownArray = []
 let notShownArray = []
-
+let defaultHeight = 0
 portfolioLink.forEach((item) => {
   item.addEventListener('click', () => {
     shownArray = []
@@ -112,19 +113,64 @@ portfolioLink.forEach((item) => {
         element.classList.remove('active-portfolio')
       }
     })
+
+    window.addEventListener('resize', () => {
+      windowSize = window.innerWidth
+      if (shownArray.length === 0) {
+        portfolioGrid.style.height = `50px`
+      } else if (shownArray.length > 1) {
+        if (shownArray.length < 3) {
+          defaultHeight = shownArray[0].offsetHeight
+          if (windowSize >= 1200) {
+            portfolioGrid.style.height = `calc(${defaultHeight}px)`
+          } else {
+            portfolioGrid.style.height = `calc(${defaultHeight * 2}px)`
+          }
+        } else {
+          defaultHeight = shownArray[0].offsetHeight
+          if (windowSize >= 1200) {
+            portfolioGrid.style.height = `${
+              Math.ceil(shownArray.length / 2) * 240
+            }px`
+          } else {
+            portfolioGrid.style.height = `calc(${
+              defaultHeight * shownArray.length
+            }px)`
+          }
+        }
+      } else {
+        shownArray[0].style.width = '100%'
+        defaultHeight = shownArray[0].offsetHeight
+        portfolioGrid.style.height = `calc(${defaultHeight}px)`
+      }
+    })
+
     if (shownArray.length === 0) {
       portfolioGrid.style.height = `50px`
     } else if (shownArray.length > 1) {
       if (shownArray.length < 3) {
-        portfolioGrid.style.height = '220px'
+        defaultHeight = shownArray[0].offsetHeight
+        if (windowSize >= 1200) {
+          portfolioGrid.style.height = `calc(${defaultHeight}px)`
+        } else {
+          portfolioGrid.style.height = `calc(${defaultHeight * 2}px)`
+        }
       } else {
-        portfolioGrid.style.height = `${
-          Math.ceil(shownArray.length / 2) * 240
-        }px`
+        defaultHeight = shownArray[0].offsetHeight
+        if (windowSize >= 1200) {
+          portfolioGrid.style.height = `${
+            Math.ceil(shownArray.length / 2) * 240
+          }px`
+        } else {
+          portfolioGrid.style.height = `calc(${
+            defaultHeight * shownArray.length
+          }px)`
+        }
       }
     } else {
       shownArray[0].style.width = '100%'
-      portfolioGrid.style.height = `470px`
+      defaultHeight = shownArray[0].offsetHeight
+      portfolioGrid.style.height = `calc(${defaultHeight}px)`
     }
   })
 })
