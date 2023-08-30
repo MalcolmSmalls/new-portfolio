@@ -333,6 +333,8 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
+  font-size: 0.8rem;
+  min-width: 440px;
 }
 
 .type {
@@ -379,6 +381,12 @@ header {
   }
   90% {
     transform: translateY(0);
+  }
+}
+
+@media (min-width: 550px) {
+  .hero-content {
+    font-size: 1rem;
   }
 }
 
