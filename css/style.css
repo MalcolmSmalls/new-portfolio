@@ -767,8 +767,14 @@ td {
 }
 
 .grid-title {
-  font-size: 2rem;
+  font-size: 1rem;
   margin: 0;
+}
+
+@media (min-width: 500px) {
+  .grid-title {
+    font-size: 2rem;
+  }
 }
 
 .grid-item:hover {
@@ -833,9 +839,9 @@ td {
   margin-right: 0.5em;
 }
 
-.portfolio {
+/* .portfolio {
   padding-bottom: 5em;
-}
+} */
 /* Contact Form */
 .contact i {
   font-size: 2rem;

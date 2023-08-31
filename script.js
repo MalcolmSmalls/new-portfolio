@@ -70,11 +70,37 @@ let windowSize = 0
 let shownArray = []
 let notShownArray = []
 let defaultHeight = 0
+let technologyClicked = false
+
+function getDefaultHeight() {
+  if (shownArray.length === 1) {
+    defaultHeight = shownArray[0].offsetHeight
+    console.log('this is just one', defaultHeight)
+  } else if (shownArray.length > 1) {
+    console.log('this is the function getting defaultHeight', shownArray)
+    defaultHeight = shownArray[0].offsetHeight
+    console.log(defaultHeight, 'beep')
+  } else {
+    defaultHeight = 0
+  }
+}
+
+// Loop through each portfolio item initially and send to shown array to satisfy default 'all' state.
+gridItem.forEach((element) => shownArray.push(element))
+// console.log(shownArray)
+
+// Go through each link in the portfolio menu in order to add something...
 portfolioLink.forEach((item) => {
+  // Add a click event listener to each portfolio menu link...
   item.addEventListener('click', () => {
-    shownArray = []
+    // Reset arrays soon as a portfolio menu is clicked.
     notShownArray = []
+    shownArray = []
+    // On each click, get size of the window and assign that value to windowSize
+    windowSize = window.innerWidth
+    //When clicked, begin to loop through each portfolio item.
     gridItem.forEach((element) => {
+      // When clicked, if it was 'all' that is clicked, add these styles to each grid item and push them to shownArray.
       if (item.attributes['data-filter'].value === 'all') {
         // element.style.flex = '1 1 auto'
         element.style.opacity = '1'
@@ -83,8 +109,10 @@ portfolioLink.forEach((item) => {
         element.style.transform = 'translate3d(0px, 0px, 0px)'
         element.style.order = '1'
         element.style.width = '550px'
-        shownArray.push('true')
+        shownArray.push(element)
+        technologyClicked = true
       } else {
+        // Whichever portfolio item has the value that the clicked link has add these styles and put each in shownArray
         if (element.classList.contains(item.attributes['data-filter'].value)) {
           // element.style.flex = '1 1 auto'
           element.style.opacity = '1'
@@ -94,7 +122,9 @@ portfolioLink.forEach((item) => {
           element.style.order = '1'
           element.style.width = '550px'
           shownArray.push(element)
+          technologyClicked = true
         } else {
+          // If the portfolio item does not have the value clicked link has, add these styles to hide and put in notShownArray
           element.style.opacity = '0'
           element.style.transitionProperty = 'opacity, transform'
           element.style.transitionDuration = '0.4s'
@@ -102,10 +132,22 @@ portfolioLink.forEach((item) => {
           element.style.width = '550px'
           // element.style.flex = '0 0 0'
           element.style.order = '100'
-          notShownArray.push('false')
+          notShownArray.push(element)
+          technologyClicked = true
         }
       }
     })
+
+    if (technologyClicked) {
+      getDefaultHeight()
+      console.log(
+        'this means technology has been clicked',
+        defaultHeight,
+        shownArray
+      )
+    }
+
+    // Adds active class to portfolio menu list in order to underline and bold specific 'technology type' link clicked on.
     portfolioLink.forEach((element) => {
       if (element === item) {
         element.classList.add('active-portfolio')
@@ -114,65 +156,74 @@ portfolioLink.forEach((item) => {
       }
     })
 
-    window.addEventListener('resize', () => {
-      windowSize = window.innerWidth
-      if (shownArray.length === 0) {
-        portfolioGrid.style.height = `50px`
-      } else if (shownArray.length > 1) {
-        if (shownArray.length < 3) {
-          defaultHeight = shownArray[0].offsetHeight
-          if (windowSize >= 1200) {
-            portfolioGrid.style.height = `calc(${defaultHeight}px)`
-          } else {
-            portfolioGrid.style.height = `calc(${defaultHeight * 2}px)`
-          }
-        } else {
-          defaultHeight = shownArray[0].offsetHeight
-          if (windowSize >= 1200) {
-            portfolioGrid.style.height = `${
-              Math.ceil(shownArray.length / 2) * 240
-            }px`
-          } else {
-            portfolioGrid.style.height = `calc(${
-              defaultHeight * shownArray.length
-            }px)`
-          }
-        }
-      } else {
-        shownArray[0].style.width = '100%'
-        defaultHeight = shownArray[0].offsetHeight
-        portfolioGrid.style.height = `calc(${defaultHeight}px)`
-      }
-    })
-
+    // When menu item is clicked, if shownArray.length === 0, something happens.
     if (shownArray.length === 0) {
       portfolioGrid.style.height = `50px`
+      console.log(shownArray, 'shownArray is zero')
     } else if (shownArray.length > 1) {
       if (shownArray.length < 3) {
-        defaultHeight = shownArray[0].offsetHeight
         if (windowSize >= 1200) {
+          console.log('shownArray greater than 1 and less than 3')
           portfolioGrid.style.height = `calc(${defaultHeight}px)`
         } else {
-          portfolioGrid.style.height = `calc(${defaultHeight * 2}px)`
+          portfolioGrid.style.height = `calc(${defaultHeight * 2}px + ${
+            (shownArray.length - 1) * 2
+          }em)`
         }
       } else {
-        defaultHeight = shownArray[0].offsetHeight
         if (windowSize >= 1200) {
           portfolioGrid.style.height = `${
             Math.ceil(shownArray.length / 2) * 240
           }px`
         } else {
+          console.log(
+            defaultHeight,
+            shownArray.length,
+            windowSize,
+            shownArray[0]
+          )
           portfolioGrid.style.height = `calc(${
             defaultHeight * shownArray.length
-          }px)`
+          }px + ${(shownArray.length - 1) * 2}em)`
         }
       }
     } else {
+      getDefaultHeight()
       shownArray[0].style.width = '100%'
-      defaultHeight = shownArray[0].offsetHeight
       portfolioGrid.style.height = `calc(${defaultHeight}px)`
     }
   })
+})
+
+window.addEventListener('resize', () => {
+  windowSize = window.innerWidth
+  getDefaultHeight()
+  if (shownArray.length === 0) {
+    portfolioGrid.style.height = `50px`
+  } else if (shownArray.length > 1) {
+    if (shownArray.length < 3) {
+      if (windowSize >= 1200) {
+        portfolioGrid.style.height = `calc(${defaultHeight}px)`
+      } else {
+        portfolioGrid.style.height = `calc(${defaultHeight * 2}px + ${
+          (shownArray.length - 1) * 2
+        }em)`
+      }
+    } else {
+      if (windowSize >= 1200) {
+        portfolioGrid.style.height = `${
+          Math.ceil(shownArray.length / 2) * 240
+        }px`
+      } else {
+        portfolioGrid.style.height = `calc(${
+          defaultHeight * shownArray.length
+        }px + ${(shownArray.length - 1) * 2}em)`
+      }
+    }
+  } else {
+    shownArray[0].style.width = '100%'
+    portfolioGrid.style.height = `calc(${defaultHeight}px)`
+  }
 })
 
 // Hero - Type
