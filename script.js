@@ -75,11 +75,8 @@ let technologyClicked = false
 function getDefaultHeight() {
   if (shownArray.length === 1) {
     defaultHeight = shownArray[0].offsetHeight
-    console.log('this is just one', defaultHeight)
   } else if (shownArray.length > 1) {
-    console.log('this is the function getting defaultHeight', shownArray)
     defaultHeight = shownArray[0].offsetHeight
-    console.log(defaultHeight, 'beep')
   } else {
     defaultHeight = 0
   }
@@ -140,11 +137,6 @@ portfolioLink.forEach((item) => {
 
     if (technologyClicked) {
       getDefaultHeight()
-      console.log(
-        'this means technology has been clicked',
-        defaultHeight,
-        shownArray
-      )
     }
 
     // Adds active class to portfolio menu list in order to underline and bold specific 'technology type' link clicked on.
@@ -159,11 +151,9 @@ portfolioLink.forEach((item) => {
     // When menu item is clicked, if shownArray.length === 0, something happens.
     if (shownArray.length === 0) {
       portfolioGrid.style.height = `50px`
-      console.log(shownArray, 'shownArray is zero')
     } else if (shownArray.length > 1) {
       if (shownArray.length < 3) {
         if (windowSize >= 1200) {
-          console.log('shownArray greater than 1 and less than 3')
           portfolioGrid.style.height = `calc(${defaultHeight}px)`
         } else {
           portfolioGrid.style.height = `calc(${defaultHeight * 2}px + ${
@@ -176,20 +166,14 @@ portfolioLink.forEach((item) => {
             Math.ceil(shownArray.length / 2) * 240
           }px`
         } else {
-          console.log(
-            defaultHeight,
-            shownArray.length,
-            windowSize,
-            shownArray[0]
-          )
           portfolioGrid.style.height = `calc(${
             defaultHeight * shownArray.length
           }px + ${(shownArray.length - 1) * 2}em)`
         }
       }
     } else {
-      getDefaultHeight()
       shownArray[0].style.width = '100%'
+      getDefaultHeight()
       portfolioGrid.style.height = `calc(${defaultHeight}px)`
     }
   })
